@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nav_background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.usuario.redsports.Login"
+    android:orientation="vertical">
+
+    <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:spb_sections_count="4"
+        app:spb_color="@color/colorBlanco"
+        app:spb_speed="2.0"
+        app:spb_stroke_width="4dp"
+        app:spb_stroke_separator_length="4dp"
+        app:spb_reversed="false"
+        app:spb_mirror_mode="false"
+        app:spb_progressiveStart_activated="true"
+        app:spb_progressiveStart_speed="1.5"
+        app:spb_progressiveStop_speed="3.4"
+        android:id="@+id/progressbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorBlanco"
+        android:textSize="35sp"
+        android:layout_weight="0.3"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/redsport_icon_n"
+        android:layout_weight="0.3" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/view"
+        android:layout_weight="5" />
+
+    <EditText
+        android:id="@+id/etUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:hint="@string/login_user"
+        android:theme="@style/CampoTextoBlanco"
+        android:textColorHint="@color/colorBlanco"
+        android:textColor="@color/colorBlanco"
+        android:layout_weight="0.5" />
+
+
+    <EditText
+        android:id="@+id/etContrasena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:hint="@string/login_pass"
+        android:theme="@style/CampoTextoBlanco"
+        android:textColorHint="@color/colorBlanco"
+        android:textColor="@color/colorBlanco"
+        android:layout_weight="0.5" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/login_iniciarsesion"
+        android:id="@+id/btnOk"
+        android:background="@drawable/bordes_boton"
+        android:theme="@style/AppTheme.Button"
+        android:layout_marginTop="30dp"
+        android:textSize="15sp"
+        android:layout_weight="0.5"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvRegistrarse"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="italic"
+        android:textColor="@color/colorBlanco"
+        android:text="@string/login_registrarse"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:textIsSelectable="false" />
+
+
+</LinearLayout>

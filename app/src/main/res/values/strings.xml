@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">RedSports</string>
+    <string name="facebook_app_id">1049229095148058</string>
+    <!-- Login -->
+    <string name="login_user">Usuario</string>
+    <string name="login_pass">Contraseña</string>
+    <string name="login_iniciarsesion">Iniciar sesión</string>
+    <string name="login_registrarse">¿No tienes una cuenta? Registrate</string>
+    <!-- Alta -->
+    <string name="alta_usuario">Nombre de usuario</string>
+    <string name="alta_contrasena">Contraseña</string>
+    <string name="alta_contrasena2">Repita su contraseña</string>
+    <string name="alta_crear_usuario">Crear usuario</string>
+    <!-- Nav -->
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar menú de navegación</string>
+    <string name="nav_buscar_quedadas">Buscar encuentros</string>
+    <string name="nav_buscar_mapa">Buscar en mapa</string>
+    <string name="nav_cerrar_sesion">Cerrar sesión</string>
+    <string name="nav_configuración">Configuración</string>
+    <string name="nav_preferencias">Preferencias</string>
+    <!-- AltaEncuentros -->
+
+    <string name="spinner_titulo">¿Irás acompañado?</string>
+    <string-array name="spinner_array">
+        <item>No</item>
+        <item>Si</item>
+    </string-array>
+
+
+</resources>

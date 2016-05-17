@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.usuario.redsports.AltaEncuentro">
+
+    <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:background="@drawable/nav_background"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:paddingTop="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/app_name"
+                android:id="@+id/tvTituloToolbar"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:gravity="right" />
+
+            <TextView
+                android:paddingTop="3dp"
+                android:id="@+id/tvSubtituloToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tvTituloToolbar"
+                android:textSize="10sp"
+                android:text=" - Nuevo encuentro"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etDesc"
+            android:layout_gravity="center_horizontal"
+            android:maxLength="100"
+            android:lines="3"
+            android:minLines="2"
+            android:maxLines="3"
+            android:hint="Descripción (consejo: indicar la zona)"
+            android:layout_weight="0"
+            android:layout_margin="10dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Máx personas"
+                    android:id="@+id/textView4"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold" />
+
+                <NumberPicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:id="@+id/numberPicker" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¿Irás acompañado?"
+                    android:id="@+id/textv"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/spinner"
+                    android:entries="@array/spinner_array"
+                    android:prompt="@string/spinner_titulo"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/Widget.Holo.Spinner"
+                    android:id="@+id/btnFecha"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:text="Selecciona Fecha" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/Widget.Holo.Spinner"
+                    android:id="@+id/btnHora"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:text="Selecciona Hora" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="15dp">
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:text="Cancelar"
+                android:background="@drawable/raisedbutton"
+                android:textColor="@color/colorBlanco"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_gravity="bottom" />
+
+            <Button
+                android:id="@+id/btnCrear"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:text="Crear"
+                android:background="@drawable/raisedbutton"
+                android:textColor="@color/colorBlanco"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_gravity="bottom" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
