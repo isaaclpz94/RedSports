@@ -82,7 +82,7 @@ public class Principal extends AppCompatActivity {
                 new BorrarTask().execute(BORRAR_USUARIOENCUENTRO, ID, borrarEste.getId() + "");
                 new UpdateTask().execute(REDUCIR_APUNTADOS, encuentros.get(itemPosition).getId() + "", "1");
                 encuentros.remove(itemPosition);
-                //adaptador.notifyItemRemoved(itemPosition);
+                adaptador.notifyItemRemoved(itemPosition);
                 break;
         }
         return super.onContextItemSelected(item);
@@ -401,7 +401,6 @@ public class Principal extends AppCompatActivity {
         protected void onPostExecute(String s) {
             if (s.equals("1")) { //La consulta se ha realizado correctamente
                 new ActualizarTask().execute(ENCUENTROS + "?idusuario=" + ID, "si");
-                adaptador.notifyItemRemoved(itemPosition);
                 Toast.makeText(Principal.this, getResources().getString(R.string.no_asistiras), Toast.LENGTH_SHORT).show();
             } else if (s.equals("2")) { //Error en la consulta
                 Toast.makeText(Principal.this, getResources().getString(R.string.mas_tarde), Toast.LENGTH_SHORT).show();

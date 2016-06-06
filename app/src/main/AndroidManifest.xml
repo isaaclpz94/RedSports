@@ -38,10 +38,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".splash.SplashScreenSports"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".splash.SplashScreenMap"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AltaUsuario"
             android:screenOrientation="portrait" />
