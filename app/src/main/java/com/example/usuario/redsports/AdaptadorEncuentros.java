@@ -1,7 +1,8 @@
 package com.example.usuario.redsports;
 
-import android.graphics.drawable.Drawable;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,12 @@ import java.util.ArrayList;
 /**
  * Created by USUARIO on 09/05/2016.
  */
-public class AdaptadorEncuentros extends RecyclerView.Adapter<AdaptadorEncuentros.EncuentrosViewHolder> implements View.OnClickListener {
+public class AdaptadorEncuentros extends RecyclerView.Adapter<AdaptadorEncuentros.EncuentrosViewHolder> implements View.OnClickListener, View.OnLongClickListener {
 
     private View.OnClickListener listener;
+    public static Resources recursos;
+
+    private View.OnLongClickListener longlistener;
 
     private ArrayList<Encuentro> datos;
 
@@ -36,8 +40,9 @@ public class AdaptadorEncuentros extends RecyclerView.Adapter<AdaptadorEncuentro
     public EncuentrosViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView;
         itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_encuentro, viewGroup, false);
-
+        recursos = viewGroup.getResources();
         itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
 
         EncuentrosViewHolder tvh = new EncuentrosViewHolder(itemView);
 
@@ -53,6 +58,10 @@ public class AdaptadorEncuentros extends RecyclerView.Adapter<AdaptadorEncuentro
 
     public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnLongClickListener(View.OnLongClickListener longlistener) {
+        this.longlistener = longlistener;
     }
 
     @Override
@@ -76,6 +85,13 @@ public class AdaptadorEncuentros extends RecyclerView.Adapter<AdaptadorEncuentro
             listener.onClick(view);
     }
 
+    @Override
+    public boolean onLongClick(View v) {
+        if(longlistener != null) {
+            longlistener.onLongClick(v);
+        }
+        return true;
+    }
 
     /*************** VIEWHOLDER *********************/
     public static class EncuentrosViewHolder  extends RecyclerView.ViewHolder {
@@ -90,18 +106,19 @@ public class AdaptadorEncuentros extends RecyclerView.Adapter<AdaptadorEncuentro
         tvFecha = (TextView)itemView.findViewById(R.id.tvFecha);
         tvCapacidad = (TextView)itemView.findViewById(R.id.tvCapacidad);
         imgVoy = (ImageView)itemView.findViewById(R.id.imgVoy);
-
     }
 
     public void bindTitular(Encuentro e) {
         if(!e.equals(new Encuentro())){
             String[] fechaHora = obtenerFechayHora(e);
-
             tvDescripcion.setText(e.getDescripcion());
             tvCapacidad.setText(e.getApuntados() + "/" + e.getCapacidad());
+            if(e.getApuntados() == e.getCapacidad()){
+                tvCapacidad.setTextColor(recursos.getColor(R.color.colorPrimaryDark));
+            }
             tvFecha.setText(fechaHora[0] + " " + fechaHora[1]);
             if(e.isAsistente()){
-                imgVoy.setImageResource(R.drawable.voyy);
+                imgVoy.setImageResource(R.drawable.voy);
             }
         }
     }

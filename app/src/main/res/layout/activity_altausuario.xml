@@ -77,6 +77,34 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:id="@+id/imageView5"
+            android:src="@drawable/icon_new_user"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp" />
+
+        <EditText
+            android:id="@+id/etNombreN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:maxLength="35"
+            android:hint="@string/alta_nombre_usuario"
+            android:theme="@style/CampoTextoBlanco"
+            android:textColorHint="@color/colorBlanco"
+            android:textColor="@color/colorBlanco"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -114,6 +142,7 @@
             android:id="@+id/imPass2"
             android:src="@drawable/icon_new_pass"
             android:layout_gravity="center"
+            android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp" />
 
         <EditText

@@ -12,7 +12,6 @@ public class Deporte implements Parcelable{
     private String nombre;
     private Bitmap icono;
 
-
     public Deporte(){
     }
 

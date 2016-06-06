@@ -1,16 +1,34 @@
 <resources>
     <string name="app_name">RedSports</string>
     <string name="facebook_app_id">1049229095148058</string>
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="cancelar_asistencia">Cancelar asistencia</string>
+    <string name="cargando">Cargando…</string>
+    <string name="menu_contextual">Cancelar asistencia</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+
     <!-- Login -->
     <string name="login_user">Usuario</string>
     <string name="login_pass">Contraseña</string>
     <string name="login_iniciarsesion">Iniciar sesión</string>
     <string name="login_registrarse">¿No tienes una cuenta? Registrate</string>
-    <!-- Alta -->
+    <string name="logeado">Logueado</string>
+    <string name="contraseña_equivocada">Contraseña equivocada</string>
+    <string name="usuario_no_existe">El usuario no existe</string>
+
+    <!-- Alta Usuario -->
     <string name="alta_usuario">Nombre de usuario</string>
+    <string name="alta_nombre_usuario">Nombre de pila</string>
     <string name="alta_contrasena">Contraseña</string>
     <string name="alta_contrasena2">Repita su contraseña</string>
+    <string name="inserte_contraseña">Inserte su contraseña</string>
+    <string name="inserte_nombre">Inserte su nombre</string>
+    <string name="inserte_usernae">Inserte su nombre de usuario</string>
+    <string name="usuario_existe">El usuario ya existe</string>
     <string name="alta_crear_usuario">Crear usuario</string>
+
     <!-- Nav -->
     <string name="navigation_drawer_open">Abrir menú de navegación</string>
     <string name="navigation_drawer_close">Cerrar menú de navegación</string>
@@ -19,13 +37,75 @@
     <string name="nav_cerrar_sesion">Cerrar sesión</string>
     <string name="nav_configuración">Configuración</string>
     <string name="nav_preferencias">Preferencias</string>
-    <!-- AltaEncuentros -->
 
+    <!-- Alta Encuentros -->
     <string name="spinner_titulo">¿Irás acompañado?</string>
+    <string name="lugar">Lugar</string>
+    <string name="siguiente">SIGUIENTE</string>
+    <string name="asistencia">Asistencia</string>
+    <string name="hint_ejemplo">Ej: Ruta de runnning por el albayzin</string>
+    <string name="toolbar_subtitulo"> - Nuevo encuentro</string>
+    <string name="sugerencia_descripcion">Descripción (consejo: indicar la zona)</string>
+    <string name="number_spinner">Máx personas</string>
+    <string name="spinner_acompañantes">¿Irás acompañado?</string>
+    <string name="fecha">Selecciona Fecha</string>
+    <string name="hora">Selecciona Hora</string>
+    <string name="fecha_hora">Selecciona fecha y hora</string>
+    <string name="selecciona_deporte">Selecciona deporte</string>
+    <string name="selecciona_lugar">Selecciona lugar de encuentro</string>
+    <string name="encuentro_aqui">Tu encuentro será aquí</string>
+    <string name="cuantas_personas">¿Con cuántas personas?</string>
     <string-array name="spinner_array">
         <item>No</item>
         <item>Si</item>
     </string-array>
+
+    <!-- Encuentro -->
+    <string name="max_personas">¡Ya no pueden ir más personas!</string>
+    <string name="asistes">¡Ya asistes a éste encuentro!</string>
+    <string name="asistiras">Asistirás a este encuentro</string>
+    <string name="lugar_encuentro">Lugar de encuentro</string>
+    <string name="no_asistiras">No asistirás a este encuentro</string>
+    <string name="deshacer">DESHACER</string>
+    <string name="encuentro">Encuentro</string>
+
+
+    <!-- Mapa -->
+    <string name="capacidad">Capacidad:</string>
+    <string name="fecha_">Fecha</string>
+    <string name="deporte">Deporte</string>
+
+    <!-- Principal -->
+    <string name="mis_encuentros">Mis encuentros</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="sin_encuentros">No tienes encuentros</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preferencias -->
+    <string name="cambiar_nombre">Cambiar nombre de usuario</string>
+    <string name="eliminar_cuenta">Eliminar cuenta</string>
+    <string name="cambiar_contraseña">Cambiar contraseña</string>
+    <string name="cambiar_username">Cambiar nombre</string>
+    <string name="perfil">Perfil</string>
+    <string name="idioma">Idioma</string>
+    <string name="acerca_de">Acerca de…</string>
+    <string name="info_actualizada">La información se actualizó correctamente</string>
+    <string name="su_contraseña">Escriba su contraseña</string>
+    <string name="borrar_cuenta">¿Está seguro de que quiere eliminar su cuenta?</string>
+
+    <!-- Otros -->
+    <string name="no_vacio">Este campo no puede estar vacío</string>
+    <string name="alert_gps">El sistema GPS esta desactivado, ¿Desea activarlo?</string>
+    <string name="mas_tarde">Ha habido un error, pruebe de nuevo más tarde</string>
+    <string name="no_conexion">Comprueba tu conexión de internete</string>
+    <string name="procesando">Procesando…</string>
+    <string name="min_caracteres">Mínimo 4 caracteres</string>
+    <string name="contraseñas_no_coincidenn">Las contraseñas no coinciden</string>
+    <string name="idioma_español">Español</string>
+    <string name="idioma_ingles">Ingles</string>
+    <string name="espera">Por favor, espera…</string>
+    <string name="about_us_texto">Creado por: Isaac López Delgado \n Proyecto integrado 2ºDAM</string>
+
 
 
 </resources>

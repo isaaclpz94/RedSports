@@ -18,7 +18,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="98dp"
         android:layout_toRightOf="@+id/numberPicker1"
-        android:text="Cancelar" />
+        android:text="@string/cancel" />
 
     <Button
         android:id="@+id/button1"
@@ -28,6 +28,6 @@
         android:layout_alignBottom="@+id/button2"
         android:layout_marginRight="16dp"
         android:layout_toLeftOf="@+id/numberPicker1"
-        android:text="Aceptar" />
+        android:text="@string/ok" />
 
 </RelativeLayout>

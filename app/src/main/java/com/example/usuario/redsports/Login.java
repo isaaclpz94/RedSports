@@ -5,28 +5,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.usuario.redsports.POJO.Encuentro;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -76,7 +68,7 @@ public class Login extends AppCompatActivity {
         }
 
         //comprobar si ya esta logueado
-        usuario = prefs.getString("username","");
+        usuario = prefs.getString("nombre","");
         contraseña = prefs.getString("contrasena","");
         if(!usuario.equals("") && !contraseña.equals("")){
             Intent i = new Intent(Login.this, Principal.class);
@@ -88,6 +80,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Login.this,AltaUsuario.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
             }
         });
 
@@ -104,11 +97,11 @@ public class Login extends AppCompatActivity {
                         contraseña = etPass.getText().toString().trim();
                         rellenado = true;
                     }else{
-                        etPass.setError("Escriba su contraseña");
+                        etPass.setError(getResources().getString(R.string.inserte_contraseña));
                         etUser.setError(null);
                     }
                 }else{
-                    etUser.setError("Inserte un nombre de usuario");
+                    etUser.setError(getResources().getString(R.string.inserte_usernae));
                     etPass.setError(null);
                 }
 
@@ -124,7 +117,7 @@ public class Login extends AppCompatActivity {
     /************** LOGUEAR *********************/
     public class LoginTask extends AsyncTask<String,Void,String> {
 
-        String ID;
+        String ID, nombre;
 
         @Override
         protected String doInBackground(String... params) {
@@ -133,7 +126,6 @@ public class Login extends AppCompatActivity {
             String contraseña = params[1];
             URL url = null; // Url de donde queremos obtener información
             String devuelve = "";
-
 
             try {
                 url = new URL(cadena);
@@ -146,7 +138,6 @@ public class Login extends AppCompatActivity {
                 StringBuilder result = new StringBuilder();
 
                 if (respuesta == HttpURLConnection.HTTP_OK) {
-
 
                     InputStream in = new BufferedInputStream(connection.getInputStream());  // preparo la cadena de entrada
 
@@ -166,25 +157,22 @@ public class Login extends AppCompatActivity {
 
                     String resultJSON = respuestaJSON.getString("estado");   // estado es el nombre del campo en el JSON
 
-                    if (resultJSON.equals("1")) {      // hay un alumno que mostrar
+                    if (resultJSON.equals("1")) {
                         devuelve = respuestaJSON.getJSONObject("mensaje").getString("contrasena");
+                        nombre = respuestaJSON.getJSONObject("mensaje").getString("nombre");
                         ID = respuestaJSON.getJSONObject("mensaje").getString("ID");
                         if (devuelve.equals(contraseña)) {
-                            return "Logueado";
+                            return getResources().getString(R.string.logeado);
                         } else {
-                            return "Contraseña equivocada";
+                            return getResources().getString(R.string.contraseña_equivocada);
                         }
 
                     } else if (resultJSON.equals("2")) {
-                        return "El usuario no existe";
+                        return getResources().getString(R.string.usuario_no_existe);
                     }
 
                 }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
 
@@ -195,15 +183,15 @@ public class Login extends AppCompatActivity {
         protected void onPostExecute(String s) {
             barra.setVisibility(View.INVISIBLE);
             if (s.equals("Logueado")) {
-                Log.v("Loguead ", "con la id:" + ID );
                 editor.putString("ID", ID);
+                editor.putString("nombre", nombre);
                 editor.putString("username", usuario);
                 editor.putString("contrasena", contraseña);
                 editor.commit();
                 new getEncuentrosTask().execute(ENCUENTROS + "?idusuario=" + ID);
             } else {
                 if(s.equals(""))
-                    Snackbar.make(btnOk, "Error, problema de conexión", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(btnOk, getResources().getString(R.string.no_conexion), Snackbar.LENGTH_SHORT).show();
                 else
                     Snackbar.make(btnOk, s, Snackbar.LENGTH_SHORT).show();
             }
@@ -281,6 +269,7 @@ public class Login extends AppCompatActivity {
             if(encuentros!=null)
                 i.putParcelableArrayListExtra("encuentros", encuentros);
             startActivity(i);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
     }
 }

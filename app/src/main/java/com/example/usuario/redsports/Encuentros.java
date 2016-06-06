@@ -2,6 +2,7 @@ package com.example.usuario.redsports;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +13,15 @@ import android.widget.TextView;
 
 import com.example.usuario.redsports.POJO.Deporte;
 import com.example.usuario.redsports.POJO.Encuentro;
+import com.example.usuario.redsports.alta_encuentro.AltaEncuentro1;
+
 import java.util.ArrayList;
 
 public class Encuentros extends AppCompatActivity {
 
     private ArrayList<Deporte> deportes = new ArrayList<>();
     private ArrayList<Encuentro> encuentros = new ArrayList<>();
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,16 @@ public class Encuentros extends AppCompatActivity {
             finish();
         }
 
+        fab = (FloatingActionButton)findViewById(R.id.fabb);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Encuentros.this, AltaEncuentro1.class);
+                i.putParcelableArrayListExtra("deportes", deportes);
+                startActivity(i);
+            }
+        });
+
         //obtengo la toolbar, le doy estilo y le pongo el boton de atrás
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         assert toolbar != null;
@@ -48,6 +62,7 @@ public class Encuentros extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
             }
         });
 

@@ -67,7 +67,6 @@ public class SplashScreenSports extends AppCompatActivity {
             while (true){
                 if(tengodeportes && tengomisencuentros){
                     new getEncuentrosTask().execute(OBTENER_ENCUENTROS);
-                    Log.v("ESTADOHEBRA","YA");
                     tengodeportes=false; //para que no ejecute mas de una vez el getEncuentrosTask()
                 }
             }
@@ -92,6 +91,7 @@ public class SplashScreenSports extends AppCompatActivity {
         TextView tvTitulo = (TextView) findViewById(R.id.tvTituloSplashsports);
         tvCargando = (TextView) findViewById(R.id.tvLoading);
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/RockSalt.ttf");
+        assert tvTitulo != null;
         tvTitulo.setTypeface(tf);
         tvCargando.setTypeface(tf);
     }
@@ -175,7 +175,6 @@ public class SplashScreenSports extends AppCompatActivity {
             super.onPostExecute(sports);
             if(sports!=null){
                 tengodeportes = true;
-                //new getEncuentrosTask().execute(OBTENER_ENCUENTROS);
                 for(Deporte d : sports){
                     deportes.add(d);
                 }
@@ -215,21 +214,18 @@ public class SplashScreenSports extends AppCompatActivity {
                 url = new URL(cadena);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection(); //Abrir la conexión
                 connection.setRequestProperty("User-Agent", "Mozilla/5.0" + " (Linux; Android 1.5; es-ES) Ejemplo HTTP");
-                //connection.setHeader("content-type", "application/json");
 
                 int respuesta = connection.getResponseCode();
                 StringBuilder result = new StringBuilder();
 
                 if (respuesta == HttpURLConnection.HTTP_OK) {
 
-
                     InputStream in = new BufferedInputStream(connection.getInputStream());  // preparo la cadena de entrada
-
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));  // la introduzco en un BufferedReader
 
-                    // El siguiente proceso lo hago porque el JSONOBject necesita un String y tengo
-                    // que tranformar el BufferedReader a String. Esto lo hago a traves de un
-                    // StringBuilder.
+                    //El siguiente proceso lo hago porque el JSONOBject necesita un String y tengo
+                    //que tranformar el BufferedReader a String. Esto lo hago a traves de un
+                    //StringBuilder.
 
                     String line;
                     while ((line = reader.readLine()) != null) {
@@ -267,7 +263,6 @@ public class SplashScreenSports extends AppCompatActivity {
         protected void onPostExecute(ArrayList<Encuentro> encuentros) {
             super.onPostExecute(encuentros);
             if(encuentros == null){
-                Log.v("QUE PASA", "NO TENEMOS ENCUENTROS PARA ESTE USUARIO");
             }
             tengomisencuentros = true;
         }
@@ -307,19 +302,20 @@ public class SplashScreenSports extends AppCompatActivity {
 
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        result.append(line);        // Paso toda la entrada al StringBuilder
+                        result.append(line); // Paso toda la entrada al StringBuilder
                     }
+
                     //Creamos un objeto JSONObject para poder acceder a los atributos (campos) del objeto.
                     JSONObject respuestaJSON = new JSONObject(result.toString());   //Creo un JSONObject a partir del StringBuilder pasado a cadena
                     //Accedemos al vector de resultados
 
-                    String resultJSON = respuestaJSON.getString("estado");   // estado es el nombre del campo en el JSON
+                    String resultJSON = respuestaJSON.getString("estado"); // estado es el nombre del campo en el JSON
 
-                    if (resultJSON.equals("1")) {      // hay encuentros que mostrar
+                    if (resultJSON.equals("1")) { // hay encuentros que mostrar
                         jArray = respuestaJSON.getJSONArray("encuentros");
                         ArrayList<Encuentro> arrayEncuentros = new ArrayList<>(); //array en el que los voy a guardar
 
-                        for(int i = 0; i<jArray.length();i++){
+                        for(int i = 0 ; i < jArray.length() ; i++){
                             JSONObject json_respuesta = jArray.getJSONObject(i);
                             arrayEncuentros.add(new Encuentro(json_respuesta.getInt("ID"),json_respuesta.getString("descripcion"),json_respuesta.getInt("deporte_id"),json_respuesta.getInt("apuntados"),json_respuesta.getInt("capacidad"),json_respuesta.getString("fecha"),json_respuesta.getString("hora"),json_respuesta.getString("lat"),json_respuesta.getString("lon"),false));
                         }
@@ -328,7 +324,6 @@ public class SplashScreenSports extends AppCompatActivity {
                     } else if (resultJSON.equals("2")) {
                         return null;
                     }
-
                 }
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
@@ -346,9 +341,7 @@ public class SplashScreenSports extends AppCompatActivity {
                         //Recorremos los encuentros para ver a cuales de ellos el usuario está apuntado
                         for (Encuentro e : encuentros) {
                             for (Encuentro me : arrayEncuentros) {
-                                Log.v("encuentrosusuario",arrayEncuentros.toString());
                                 if (e.getId() == me.getId()) {
-                                    Log.v("este", e.toString());
                                     e.setAsistente(true);
                                 }
                             }
@@ -360,6 +353,7 @@ public class SplashScreenSports extends AppCompatActivity {
                 i.putParcelableArrayListExtra("encuentros", encuentros);
                 i.putParcelableArrayListExtra("deportes", deportes);
                 startActivity(i);
+
             }else{
                 Intent i = new Intent(SplashScreenSports.this, Principal.class);
                 startActivity(i);

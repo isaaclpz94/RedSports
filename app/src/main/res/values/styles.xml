@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorBlanco</item>
+        <item name="android:colorBackground">@android:color/background_light</item>
 
     </style>
 
@@ -13,6 +14,12 @@
         <item name="colorControlNormal">#B9B4B4</item>
         <item name="colorControlActivated">#FFF</item>
         <item name="android:textColorHighlight">#B9B4B4</item>
+    </style>
+
+    <style name="CampoTextoRojo" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#B9B4B4</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <item name="android:textColorHighlight">#F000</item>
     </style>
 
     <style name="AppTheme.Button" parent="Base.Widget.AppCompat.Button">
@@ -33,8 +40,6 @@
         <item name="colorControlHighlight">@color/colorPrimary</item>
         <item name="colorButtonNormal">@color/colorPrimary</item>
     </style>
-
-
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

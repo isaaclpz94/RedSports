@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">RedSports</string>
+    <string name="facebook_app_id">1049229095148058</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancelar_asistencia">Cancel assistance</string>
+    <string name="cargando">Loading…</string>
+    <string name="menu_contextual">Cancel assistance</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Login -->
+    <string name="login_user">User</string>
+    <string name="login_pass">Password</string>
+    <string name="login_iniciarsesion">login</string>
+    <string name="login_registrarse">Dont have an account? Sign up</string>
+
+    <!-- Alta Usuario -->
+    <string name="alta_usuario">Username</string>
+    <string name="alta_nombre_usuario">Name</string>
+    <string name="alta_contrasena">Password</string>
+    <string name="alta_contrasena2">Repeat password</string>
+    <string name="alta_crear_usuario">Sign up</string>
+
+    <!-- Nav -->
+    <string name="navigation_drawer_open">Close</string>
+    <string name="navigation_drawer_close">Open</string>
+    <string name="nav_buscar_quedadas">Search meetings</string>
+    <string name="nav_buscar_mapa">Search in map</string>
+    <string name="nav_cerrar_sesion">Log out</string>
+    <string name="nav_configuración">Config</string>
+    <string name="nav_preferencias">Settings</string>
+
+    <!-- Alta Encuentros -->
+    <string name="spinner_titulo">Will you go together?</string>
+    <string name="lugar">Place</string>
+    <string name="siguiente">NEXT</string>
+    <string name="asistencia">Assistance</string>
+    <string name="hint_ejemplo">e.g: Running in albayzin</string>
+    <string name="toolbar_subtitulo"> - New meeting</string>
+    <string name="sugerencia_descripcion">Description (advice: indicate the area)</string>
+    <string name="number_spinner">Máx persons</string>
+    <string name="spinner_acompañantes">Will you go together?</string>
+    <string name="fecha">Select Date</string>
+    <string name="hora">Select Time</string>
+    <string name="fecha_hora">Select date and time</string>
+    <string name="selecciona_deporte">Select sport</string>
+    <string name="selecciona_lugar">Select meeting place</string>
+    <string name="encuentro_aqui">Your meeting will be here</string>
+    <string name="cuantas_personas">How many people?</string>
+    <string-array name="spinner_array">
+        <item>No</item>
+        <item>Yes</item>
+    </string-array>
+
+    <!-- Encuentro -->
+    <string name="max_personas">No more people allowed!</string>
+    <string name="asistes">¡Ya asistes a este encuentro!</string>
+    <string name="lugar_encuentro">Place of meeting</string>
+    <string name="asistiras">You will be here</string>
+    <string name="no_asistiras">You wont be here</string>
+    <string name="deshacer">UNDO</string>
+    <string name="encuentro">Meeting</string>
+
+
+    <!-- Mapa -->
+    <string name="capacidad">Capacity:</string>
+    <string name="fecha_">Date:</string>
+    <string name="deporte">Sport:</string>
+
+    <!-- Principal -->
+    <string name="mis_encuentros">My meetings</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="sin_encuentros">Dont have meetings yet</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preferencias -->
+    <string name="cambiar_nombre">Change name</string>
+    <string name="cambiar_contraseña">Change password</string>
+    <string name="eliminar_cuenta">Delete account</string>
+    <string name="cambiar_username">Change username</string>
+    <string name="perfil">Profile</string>
+    <string name="idioma">Language</string>
+    <string name="acerca_de">About us…</string>
+    <string name="info_actualizada">Updated</string>
+    <string name="su_contraseña">Write your password</string>
+    <string name="borrar_cuenta">Really want to delete your account?</string>
+
+    <!-- Otros -->
+    <string name="no_vacio">Can not be empty</string>
+    <string name="alert_gps">GPS off. Want to turn on?</string>
+    <string name="mas_tarde">Error. Try it later</string>
+    <string name="no_conexion">Check your conexion</string>
+    <string name="procesando">Processing…</string>
+    <string name="min_caracteres">Too short</string>
+    <string name="contraseñas_no_coincidenn">Passwords doesnt match</string>
+    <string name="idioma_español">Spanish</string>
+    <string name="idioma_ingles">English</string>
+    <string name="espera">Please wait…</string>
+    <string name="about_us_texto">Created by: Isaac López Delgado \n Final Proyect 2ºDAM</string>
+
+</resources>

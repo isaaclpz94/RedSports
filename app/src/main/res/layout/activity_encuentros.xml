@@ -40,7 +40,7 @@
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:textStyle="bold"
-                    android:textSize="23dp" />
+                    android:textSize="23sp" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
@@ -61,6 +61,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:src="@drawable/ic_add_white_24dp"
+            android:layout_margin="15dp"
+            android:clickable="true"
+            android:id="@+id/fabb" />
+
     </FrameLayout>
+
 
 </LinearLayout>

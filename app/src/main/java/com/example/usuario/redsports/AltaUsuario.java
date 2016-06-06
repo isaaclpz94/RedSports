@@ -23,9 +23,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import com.facebook.FacebookSdk;
 
 import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
 
@@ -34,7 +32,7 @@ import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
  */
 public class AltaUsuario extends AppCompatActivity{
     private TextView tvTitulo;
-    private EditText etUser, etPass, etPass2;
+    private EditText etUser,etNombre, etPass, etPass2;
     private Button btnOk, btnImg;
     private SmoothProgressBar barra;
     private final String IP = "http://webservicesports.esy.es";
@@ -47,6 +45,7 @@ public class AltaUsuario extends AppCompatActivity{
         setContentView(R.layout.activity_altausuario);
 
         etUser = (EditText)findViewById(R.id.etUserN);
+        etNombre = (EditText)findViewById(R.id.etNombreN);
         etPass = (EditText)findViewById(R.id.etContrasenaN);
         etPass2 = (EditText)findViewById(R.id.etContrasenaN2);
         barra = (SmoothProgressBar)findViewById(R.id.progressbar);
@@ -58,43 +57,49 @@ public class AltaUsuario extends AppCompatActivity{
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(etUser.getText().length() > 0){ //Comprobar que el campo usuario no esta vacío
-                    if(etPass.getText().length() > 0){ //Comprobar que el campo contraseña no esta vacío
-                        if(etPass2.getText().length() > 0){ //Comprobar que el campo contraseña2 no esta vacío
-                            //Todo esta rellenado, ahora compruebo que las contraseñas coinciden
+                if(etUser.getText().length() >= 4){ //Comprobar que el campo usuario no esta vacío
+                    if(etNombre.getText().length() >= 4) { //Comprobar que el campo nombre no esta vacío
+                        if (etPass.getText().length() >= 4) { //Comprobar que el campo contraseña no esta vacío
+                            if (etPass2.getText().length() >= 4) { //Comprobar que el campo contraseña2 no esta vacío
+                                //Todo esta rellenado, ahora compruebo que las contraseñas coinciden
 
-                            if(etPass.getText().toString().trim().equals(etPass2.getText().toString().trim())){ //Todo ok, recojo las variables y ejecuto la hebra
-                                String usuario = etUser.getText().toString().trim();
-                                String contraseña = etPass.getText().toString().trim();
-                                rellenado=true;
-                                barra.setVisibility(View.VISIBLE);
+                                if (etPass.getText().toString().trim().equals(etPass2.getText().toString().trim())) { //Todo ok, recojo las variables y ejecuto la hebra
+                                    String usuario = etUser.getText().toString().trim();
+                                    String contraseña = etPass.getText().toString().trim();
+                                    String nombre = etNombre.getText().toString().trim();
+                                    rellenado = true;
+                                    barra.setVisibility(View.VISIBLE);
 
-                                new InsertTask().execute(INSERT,usuario,contraseña);
+                                    new InsertTask().execute(INSERT, usuario, nombre, contraseña);
 
-                            }else{
-                                etPass2.setError("Las contraseñas no coinciden");
+                                } else {
+                                    etPass2.setError(getResources().getString(R.string.contraseñas_no_coincidenn));
+                                }
+                            } else {
+                                etPass2.setError(getResources().getString(R.string.min_caracteres));
                             }
-                        }else{
-                            etPass2.setError("Debe repetir su contraseña");
+                        } else {
+                            etPass.setError(getResources().getString(R.string.min_caracteres));
                         }
                     }else{
-                        etPass.setError("Inserte su contraseña");
+                        etNombre.setError(getResources().getString(R.string.min_caracteres));
                     }
                 }else{
-                    etUser.setError("Inserte su nombre de usuario");
+                    etUser.setError(getResources().getString(R.string.min_caracteres));
                 }
             }
         });
     }
 
     public class InsertTask extends AsyncTask<String,Void,String>{
-        private String user, pass;
+        private String user, pass, name;
 
         @Override
         protected String doInBackground(String... params) {
             String cadena = params[0];
             user = params[1];
-            pass = params[2];
+            name = params[2];
+            pass = params[3];
             URL url;
             String resultJSON = "";
 
@@ -113,6 +118,7 @@ public class AltaUsuario extends AppCompatActivity{
                 urlConn.connect();
                 //Creo el Objeto JSON
                 JSONObject jsonParam = new JSONObject();
+                jsonParam.put("nombre", name);
                 jsonParam.put("usuario", user);
                 jsonParam.put("contrasena", pass);
                 // Envio los parámetros post.
@@ -123,7 +129,6 @@ public class AltaUsuario extends AppCompatActivity{
                 writer.close();
 
                 int respuesta = urlConn.getResponseCode();
-
 
                 StringBuilder result = new StringBuilder();
 
@@ -141,13 +146,9 @@ public class AltaUsuario extends AppCompatActivity{
                     //Accedemos al vector de resultados
 
                     resultJSON = respuestaJSON.getString("estado");   // estado es el nombre del campo en el JSON
-                    }
+                }
 
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
             return resultJSON;
@@ -160,12 +161,14 @@ public class AltaUsuario extends AppCompatActivity{
             if (s.equals("1")) { //La consulta se ha realizado correctamente
                 Intent i = new Intent(AltaUsuario.this,Login.class);
                 i.putExtra("user",user);
+                i.putExtra("name", name);
                 i.putExtra("pass",pass);
                 startActivity(i);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else if (s.equals("2")) { //Error en la consulta
-                Snackbar.make(btnOk,"Ha habido un error, pruebe de nuevo más tarde", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(btnOk,getResources().getString(R.string.mas_tarde), Snackbar.LENGTH_LONG).show();
             }else if(s.equals("3")){ //El usuario ya existe
-                Snackbar.make(btnOk,"El usuario ya existe", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(btnOk,getResources().getString(R.string.usuario_existe), Snackbar.LENGTH_LONG).show();
             }
         }
     }
