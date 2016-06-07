@@ -40,6 +40,7 @@
 
     <!-- Alta Encuentros -->
     <string name="spinner_titulo">¿Irás acompañado?</string>
+    <string name="crear">Crear</string>
     <string name="lugar">Lugar</string>
     <string name="siguiente">SIGUIENTE</string>
     <string name="asistencia">Asistencia</string>
@@ -71,9 +72,9 @@
 
 
     <!-- Mapa -->
-    <string name="capacidad">Capacidad:</string>
-    <string name="fecha_">Fecha</string>
-    <string name="deporte">Deporte</string>
+    <string name="capacidad">Capacidad: </string>
+    <string name="fecha_">Fecha: </string>
+    <string name="deporte">Deporte: </string>
 
     <!-- Principal -->
     <string name="mis_encuentros">Mis encuentros</string>

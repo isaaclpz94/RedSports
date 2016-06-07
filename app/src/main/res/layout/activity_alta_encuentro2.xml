@@ -176,10 +176,11 @@
         android:layout_height="match_parent"
         android:textSize="14sp"
         android:layout_margin="5dp"
-        android:text="CREAR"
+        android:text="@string/crear"
         android:textColor="@color/colorPrimaryDark"
         android:background="@drawable/raisedbutton"
         android:layout_weight="2.5"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textStyle="bold" />
 
 </LinearLayout>

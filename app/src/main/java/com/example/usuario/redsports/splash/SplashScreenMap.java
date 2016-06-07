@@ -82,6 +82,7 @@ public class SplashScreenMap extends AppCompatActivity {
         TextView tvTitulo = (TextView) findViewById(R.id.tvTituloSplashsports);
         tvCargando = (TextView) findViewById(R.id.tvLoading);
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/RockSalt.ttf");
+        assert tvTitulo != null;
         tvTitulo.setTypeface(tf);
         tvCargando.setTypeface(tf);
     }

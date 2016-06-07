@@ -33,6 +33,7 @@
 
     <!-- Alta Encuentros -->
     <string name="spinner_titulo">Will you go together?</string>
+    <string name="crear">Create</string>
     <string name="lugar">Place</string>
     <string name="siguiente">NEXT</string>
     <string name="asistencia">Assistance</string>
@@ -64,9 +65,9 @@
 
 
     <!-- Mapa -->
-    <string name="capacidad">Capacity:</string>
-    <string name="fecha_">Date:</string>
-    <string name="deporte">Sport:</string>
+    <string name="capacidad">Capacity: </string>
+    <string name="fecha_">Date: </string>
+    <string name="deporte">Sport: </string>
 
     <!-- Principal -->
     <string name="mis_encuentros">My meetings</string>
