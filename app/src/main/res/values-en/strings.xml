@@ -12,13 +12,20 @@
     <!-- Login -->
     <string name="login_user">User</string>
     <string name="login_pass">Password</string>
+    <string name="logeado">Logued</string>
+    <string name="contraseña_equivocada">Wrong password</string>
+    <string name="usuario_no_existe">Unknown user</string>
+    <string name="inserte_contraseña">Type password</string>
     <string name="login_iniciarsesion">login</string>
     <string name="login_registrarse">Dont have an account? Sign up</string>
 
     <!-- Alta Usuario -->
     <string name="alta_usuario">Username</string>
     <string name="alta_nombre_usuario">Name</string>
+    <string name="usuario_existe">User exists</string>
     <string name="alta_contrasena">Password</string>
+    <string name="inserte_nombre">Type your name</string>
+    <string name="inserte_usernae">Insert username</string>
     <string name="alta_contrasena2">Repeat password</string>
     <string name="alta_crear_usuario">Sign up</string>
 
